@@ -1,0 +1,404 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 黑体;
+}
+button{
+    background-color: transparent;
+    color: #fff;
+    border: none;
+    outline: none;
+    font-size: 30px;
+    border: 1px solid #fff;
+    line-height: 50px;
+    padding: 0 15px;
+    border-radius: 25px;
+    margin: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+
+.first,.five,.second h1,.second p,.six h1,.six p,.seven h1,.seven p,.eight h1,.eight p,.nine h1,.nine p,.nine h3{
+    color: #fff;
+    white-space:nowrap;
+}
+
+
+.first h1{
+    font-size: 100px;
+    color: rgba(255,255,255,0.8);
+}
+.first p{
+    font-size: 100px;
+    border-top:2px solid #fff; 
+    border-bottom:2px solid #fff; 
+    white-space:nowrap; 
+}
+.first h3{
+    font-size: 80px;
+    color: rgba(255,255,255,0.8);
+}
+
+
+.second h1{
+    font-size: 70px;
+    line-height: 100px;
+}
+.second p{
+    font-size: 40px;
+}
+
+
+.third{
+    background-color: #fff!important;
+}
+.fourth{
+    background-color: rgb(247,247,247)!important;
+}
+
+.five{
+    font-size: 50px;
+}
+
+.six h3{
+	color: #fff;
+	text-align: center;
+	font-size: 50px;
+}
+.six h1{
+    font-size:30px;
+    width: 300px;
+    height: 50px;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    text-align: center;
+    line-height: 50px;
+    margin-top: 30px;
+}
+.six h1 a{
+	color: #fff;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	width: 100%;
+	height: 100%;
+}
+.six h1:hover{
+	background-color: #fff;
+}
+.six h1:hover a{
+	color: rgb(13, 206, 203);
+}
+.six p{
+    font-size:100px;
+    padding: 0 20px;
+    border-left: 25px solid #fff;
+    border-right: 25px solid #fff;
+}
+
+.jianjie h1{
+	color: #fff;
+	font-size:50px;
+	text-align: center;
+}
+.jianjie p{
+	color: #fff;
+	font-size:30px;
+	text-indent: 2em;
+}
+
+
+.seven h1{
+    font-size:50px;
+}
+.seven p{
+    font-size:50px;
+}
+.seven p span{
+    font-size: 30px;
+}
+
+
+.eight h1{
+    font-size:50px;
+    margin-bottom: 30px
+}
+.eight p{
+    font-size: 30px;
+    margin: 10px 0;
+}
+
+
+.nine h1{
+    font-size:50px;
+}
+.nine p{
+    font-size:30px;
+}
+.nine h3{
+    font-size:20px;
+    padding-left: 15px;
+    border-left: 15px solid #fff;
+    margin: 5px 0;
+    white-space: normal;
+}
+
+.ten h1{
+	text-align: center;
+}
+
+.doc h1{
+	font-size:50px;
+	color: #fff;
+}
+.doc p{
+	font-size:40px;
+	color: rgba(255,255,255,0.8)
+}
+.doc h3,.doc pre{
+	font-size:15px;
+	color: #fff;
+	font-weight: normal;
+	border-left: 10px solid rgba(255,255,255,0.8);
+	padding-left: 10px;
+}
+
+
+#cubePage{
+    background-color: #fff!important;
+}
+
+
+/*动画1*/
+/*原理：先设置左右边框，然后设置div背景色，注意左右边框的宽高要和div内容的宽高相同，颜色也要相同，这样得到的是一个长条，然后通过设置padding值来将边框和内容隔开，但是此时仍然是相连的，因为背景颜色也填充了内边距，这里要用到一个属性：background-clip: content-box;规定背景的绘制区域,该值为只绘制内容区域，这样就会在边框和内容之间出现透明间隙，最后只要让它们三个方块依次显示即可*/
+#dotLoading {
+    color:#fff;
+    width: 200px;
+    height:200px;
+    border-left: 200px solid currentColor;/*以当前color的颜色为值*/
+    background-color: transparent;
+    border-right: 200px solid transparent;
+    padding:0 20px;
+    background-clip: content-box;/*规定背景的绘制区域,该值为只绘制内容区域，这样就会再边框和内容之间出现透明间隙，其他还有border-box、padding-box*/
+    animation: doting 4s step-end infinite;/*steps(num,[end/start]),step-end/step-start让动画以帧动画的方式执行*/
+}
+@keyframes doting {
+    25% { 
+            border-left: 200px solid currentColor ;
+            background-color: currentColor;
+            border-right: 200px solid transparent;
+        }
+    50% { 
+            border-left: 200px solid currentColor ;
+            background-color: currentColor;
+            border-right: 200px solid currentColor;
+        }
+    75% {   border-left: 200px solid transparent ;
+            background-color: transparent;
+            border-right: 200px solid transparent;
+        }
+}
+/*动画2*/
+/*原理：先给div设置边框，50%圆角，变成圆环，边框颜色设为半透明的白色，然后随便给上下左右某个方向的边框设置为不透明的白色，最后让它无尽的旋转即可，简单美观好用*/
+#circle{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 30px solid rgba(255,255,255,0.5);
+    border-left:30px solid #fff; 
+    animation: circleing 1.5s linear infinite;
+    transform: rotateZ(0);
+}
+@keyframes circleing{
+    100%{
+        transform: rotateZ(360deg);
+    }
+}
+/*动画3*/
+/*原理：先给div设置边框，50%圆角，变成圆环，然后设置两个伪类，各占左右半边，伪类背景颜色和页面背景颜色一致，然后设置伪类的旋转中心为div的中心，最后让它们间隔一点时间开始旋转*/
+#circle2{
+    width: 300px;
+    height: 300px;
+    position: relative;
+    border-radius: 50%;
+    color:#0dcecb;
+    border:30px solid #FFF;
+    box-sizing: border-box;
+}
+#circle2.has:before,#circle2.has:after{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 150px;
+    top:-30px;
+    height: 300px;
+    background-color:red;
+}
+#circle2.on.has:before,#circle2.on.has:after{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 150px;
+    top:-30px;
+    height: 300px;
+    background-color:currentColor;
+}
+#circle2:before{
+    left: -30px;
+    transform-origin: 100% 50%;
+    animation: circle2ing 2s infinite;
+}
+#circle2:after{
+    right: -30px;
+    transform-origin:0% 50%;
+    animation: circle2ing 2s infinite 1.5s;
+}
+@keyframes circle2ing{
+    0%{
+        transform: rotateZ(0deg);
+    }
+    100%{
+        transform: rotateZ(360deg);
+    }
+}
+/*动画4*/
+#dotscale{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: relative;
+    margin-left: 300px;
+    animation-fill-mode: both;
+    animation: dotscaleing 2s infinite 0.3s;
+}
+#dotscale:before,#dotscale:after{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    content: '';
+    display: block;
+    top: 0;
+    animation-fill-mode: both;
+    border-radius: 50%;
+}
+#dotscale:before{
+    left: -220px;
+    animation: dotscaleing 2s infinite;
+}
+#dotscale:after{
+    left: 220px;
+    animation: dotscaleing 2s infinite 0.6s;
+}
+@keyframes dotscaleing{
+    0%,
+    80%,
+    100%{
+        box-shadow: 0 200px 0 -100px #ffffff;
+    }
+    40%{
+        box-shadow: 0 200px 0 0 #FFF;
+    }
+}
+/*box-shadow: h-shadow v-shadow blur spread color inset;*/
+/*动画5*/
+#blocklong{
+    width: 50px;
+    height: 150px;
+    margin: 200px;
+    background-color: #fff;
+    position: relative;
+    animation: blocklonging 1.2s infinite  0.16s;
+    background: lightgreen;
+}
+#blocklong:before,#blocklong:after{
+    position: absolute;
+    content: '';
+    display: block;
+    top: 0;
+    width: 50px;
+    height: 150px;
+    background-color: #fff;
+    background: lightgreen;
+}
+#blocklong:before{
+    left: -70px;
+    animation: blocklonging 1.2s infinite ;
+}
+#blocklong:after{
+    left:70px;
+    animation: blocklonging 1.2s infinite 0.32s;
+}
+@keyframes blocklonging{
+    0%,
+    80%,
+    100%
+    {
+        height: 150px;
+        box-shadow: 0px 0 #fff;
+        background: #fff;
+    }
+    40%{
+        height: 200px;
+        box-shadow: 0px -50px  lightgreen;
+        background: lightgreen;
+    }
+}
+/*魔方*/
+#cube{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    perspective: 400px;
+}
+.cubeInner{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    transform-origin: 50% 50%;
+    transform-style: preserve-3d;
+    animation: cubeing 6s infinite ease-in-out;
+}
+.side{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+}
+.side1{
+    background-color: #FF884D;
+    transform:rotateX(90deg) translateZ(150px);
+}
+.side2{
+    background-color: #41C3AC;
+    transform:rotateX(90deg) translateZ(-150px);
+}
+.side3{
+    background-color: #32526E;
+    transform:rotateY(90deg) translateZ(150px);
+}
+.side4{
+    background-color: #65A2C5;
+    transform:rotateY(90deg) translateZ(-150px);
+}
+.side5{
+    background-color: #FFCC5C;
+    transform:translateZ(100px);
+}
+.side6{
+    background-color: #FF6B57;
+    transform:translateZ(-150px);
+}
+@keyframes cubeing{
+    0%{
+        transform: rotateX(0) rotateY(0) rotateZ(0deg);
+    }
+    33.33%{
+        transform: rotateX(360deg) rotateY(0) rotateZ(0deg);
+    }
+    66.66%{
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(0deg);
+    }
+    100%{
+        transform: rotateX(360deg) rotateY(360deg) rotateZ(360deg);
+    }
+}

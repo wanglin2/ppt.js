@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>一个简单好用的网页PPT库</title>
+    <link type="text/css" rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <div class="pptPage">
+        <div class="pptCenter first">
+            <h1 class="lazyPpt">理想青年实验室出品</h1>
+            <p class="lazyPpt">一个优雅的PPT JS库</p>
+            <h3 class="lazyPpt">简单、优雅、体积小、无依赖</h3>
+        </div>
+    </div>
+
+    <div class="pptPage">
+        <div class="pptCenter six">
+            <h3>下载</h3>
+            <h1 class="lazyPpt">
+                <a href="./ppt.min.js" download> v1.0压缩版</a>
+            </h1>
+            <h1 class="lazyPpt">
+                <a href="./ppt.js" download> v1.0未压缩版</a>
+            </h1>
+        </div>
+    </div>
+
+    <div class="pptPage">
+        <div class="pptCenter jianjie">
+            <h1 class="lazyPpt">简介</h1>
+            <p class="lazyPpt">这是一个纯原生JavaScript开发的用于快速做网页PPT的库，无需任何依赖、体积小、效果好。</p>
+            <p class="lazyPpt">您需要按照本库约定的一些规则来进行布局，布局完后，再引入js文件进行简单的配置即可。</p>
+            <p class="lazyPpt">因为本库的动画效果是用CSS3实现的，所以不支持IE9以下浏览器。</p>
+        </div>
+    </div>
+
+    <div class="pptPage">
+        <div class="pptCenter first ten">
+            <h1 class="lazyPpt">实例</h1>
+            <p></p>
+            <pre class="lazyPpt">
+//1.布局
+&lt;div class="pptPage"&gt;
+	&lt;div class="pptCenter"&gt;
+		&lt;h1 class="lazyPpt"&gt;这是一个在切换到本张PPT时会自动依次显示的类&lt;/h1&gt;
+		&lt;p class="lazyPpt"&gt;这是一个在切换到本张PPT时会自动依次显示的类&lt;/p&gt;
+		&lt;p class="pptItem"&gt;这是一个在切换到本张PPT时需要通过方向键的上下键来控制显示的类&lt;/p&gt;
+		&lt;p class="pptItem"&gt;这是一个在切换到本张PPT时需要通过方向键的上下键来控制显示的类&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+//2.在布局完以后new一个实例出来就可以了，下面是您所见到的本站点所用的配置，也是最常用的配置
+var p=new ppt({
+	direction:'h',//PPT切换方式，默认为"h"，即左右切换，如果设为"v"的话，则上下切换
+	transitionType:4,//PPT切换过渡的效果，值为数字：1(渐现)、2(旋转)、3(缩小)、4(放大)，默认为0，即平移
+	pptItemEasing:4,//用于每张PPT里面的带.pptItem类、.lazyPpt类的动画效果
+	duration:0.5,//PPT切换时动画的执行时间
+	easeing:'ease-in-out',//PPT切换时动画的速度曲线
+	backgroundColor: '#0dcecb',//统一设置的PPT背景颜色
+	bodyBroundColor:'#fff',//body的背景颜色，默认为白色
+	progressBar:true,//是否显示进度条，true/false。
+	leaveResetItems:true//当离开某张幻灯片后复位其中的带pptItem类的元素，即让它们重新隐藏，再次需要用方向键来让其依次显示
+});
+//3.OK
+            </pre>
+        </div>
+    </div>
+
+    <div class="pptPage">
+        <div class="pptCenter second">
+            <h1 class="lazyPpt">文档<h1>
+        </div>
+    </div>
+
+    <div class="pptPage">
+        <div class="pptCenter doc">
+            <h1 class="lazyPpt">一.几个特殊的CSS类</h1>
+            <p class="lazyPpt">.pptPage</p>
+            <h3 class="lazyPpt">
+                该类是最重要的类，每个带此类的元素即为一张PPT。注意，本库在初始化时会自动为你将html、body、.pptPage的宽高均设置为100%，并设置好定位方式，所以你不需要再自行设置，理论上，这三个元素你最好不要设置太多样式，有可能会造成冲突。切换PPT为方向键的”左“、”右“键。
+            </h3>
+            <p class="lazyPpt">.lazyPpt</p>
+            <h3 class="lazyPpt">带该类的元素会在切换到某张PPT时自动挨个显示，就像您切换到本页所看到的依次渐现效果，目前只有渐现效果，后期会支持更多。</h3>
+            <p class="lazyPpt">.pptItem</p>
+            <h3 class="lazyPpt">
+                带该类的元素在你切换到某张PPT时是不会自动出现的，你需要通过按方向键的下建让其显示，如果该页PPT中有多个带此类的元素，你每按一下”下“键，会依次显示出来，如果按”上键“则会依次隐藏，目前高亮的效果是为不透明加上放大，后期后支持更多。你现在可以按一下试试哦！
+            </h3>
+            <p class="lazyPpt">.pptCenter</p>
+            <h3 class="lazyPpt">带该类的元素会自动居中，这是基于需求特别设置的，因为大部分的PPT内容肯定是居中的，所以该类免去了你自行设置居中的麻烦。</h3>
+            <p class="pptItem">哈哈，我出现了！！！</p>
+            <p class="pptItem">哈哈，我也出现了！！！</p>
+        </div>
+    </div>
+
+    <div class="pptPage">
+        <div class="pptCenter doc">
+            <h1 class="lazyPpt">二.配置，即new实例时传入的参数对象（一）</h1>
+            <p class="lazyPpt">1.direction:'h'</p>
+            <h3 class="lazyPpt">PPT切换方式，默认为"h"，即左右滑动，如果设为"v"的话，则上下滑动。</h3>
+            <p class="lazyPpt">2.transitionType:4</p>
+            <h3 class="lazyPpt">PPT切换过渡的效果，值为数字：1(渐现)、2(旋转)、3(缩小,目前会有点问题，推荐别用)、4(放大)，默认为0，即平移</h3>
+            <p class="lazyPpt">3.duration:0.5</p>
+            <h3 class="lazyPpt">PPT切换时动画的执行时间。因为本库里面涉及较多的动画，所以很多动画时间都以这个参数为准，建议一般设为0.3、0.4、0.5</h3>
+            <p class="lazyPpt">4.easeing:'ease-in-out'</p>
+            <h3 class="lazyPpt">PPT切换时动画的速度曲线,可选值为:linear、ease、ease-in、ease-out、ease-in-out</h3>
+        </div>
+    </div>
+
+    <div class="pptPage">
+        <div class="pptCenter doc">
+            <h1 class="lazyPpt">二.配置，即new实例时传入的参数对象（二）</h1>
+            <p class="lazyPpt">5.backgroundColor: '#0dcecb'</p>
+            <h3 class="lazyPpt">统一设置的PPT背景颜色，即设置所有的PPT背景都为此颜色，默认为白色。注意：如果你希望某一张为其他颜色，需要你自行设置，且必须加上!important，否则不生效</h3>
+            <p class="lazyPpt">6.leaveResetItems:true/false</p>
+            <h3 class="lazyPpt">
+                当离开某张幻灯片后复位其中的带pptItem类的元素，即让它们重新隐藏，再次需要用方向键来让其依次显示。如果为false，则当你第一次进入某张PPT时需要按方向键来使其显示，后续再进入该张PPT时则直接就显示了
+            </h3>
+            <p class="lazyPpt">7.progressBar:true/false</p>
+            <h3 class="lazyPpt">是否显示进度条，true/false。进度条显示在底部，默认为5px高。</h3>
+            <p class="lazyPpt">8.bodyBroundColor:'#fff'</p>
+            <h3 class="lazyPpt">body的背景颜色，默认为白色</h3>
+            <p class="lazyPpt">9.pptItemEasing:num</p>
+            <h3 class="lazyPpt">
+                用于每张PPT里面的带.pptItem类、.lazyPpt类的动画效果，值为数字：0(缩小)、1(放大)、2(从右向左平移)、3(从下到上平移)、4(从上到下平移)、5(旋转)。以上所有动画效果都带有透明度变化。
+            </h3>
+        </div>
+    </div>
+
+    <div class="pptPage">
+        <div class="pptCenter doc">
+            <h1 class="lazyPpt">三.事件监听(一)</h1>
+            <p class="lazyPpt">1.添加事件，方法：example.addListeners(eventType,callback,[pptNum])</p>
+            <pre class="lazyPpt">
+//例子
+var p=new ppt(obj);
+//为第一页PPT添加切换完毕后的事件监听
+p.addListeners('end',function(curpagenum){
+    console.log('已切换到第'+curpagenum+'张');
+},1);
+//为每页PPT都添加切换完毕后的事件监听
+p.addListeners('end',function(curpagenum){
+    console.log('已切换到第'+curpagenum+'张all');
+});
+//为第二页PPT都添加切换前的事件监听
+p.addListeners('start',function(curpagenum){
+    console.log('下一张为第'+curpagenum+'张')
+},2);
+//为每页PPT都添加切换前的事件监听
+p.addListeners('start',function(curpagenum){
+    console.log('下一张为第'+curpagenum+'张all')
+});
+//注意：目前只支持监听”end“,“start”两种事件,返回一个参数，即当前页数
+       		</pre>
+        </div>
+    </div>
+
+    <div class="pptPage">
+        <div class="pptCenter doc">
+            <h1 class="lazyPpt">三.事件监听(二)</h1>
+            <p class="lazyPpt">2.移除事件，方法：example.removeListeners(eventType,[pptIndex]);</p>
+            <h3 class="lazyPpt">
+                注意：目前只支持删除某一种事件下的全部监听方法，比如删除"end"、"start"下的全局监听方法，不支持删除某一个方法。第一个参数为要删除的事件类型名，第二个参数为要删除哪页PPT下的方法，可以不传，如果不传，则删除所有PPT的该事件监听方法。
+            </h3>
+            <pre class="lazyPpt">
+//例子
+p.removeListeners('start',1);
+            </pre>
+        </div>
+    </div>
+
+    <div class="pptPage">
+        <div class="pptCenter doc">
+            <h1 class="lazyPpt">四.方法</h1>
+            <p class="lazyPpt">1.p.getAllPpts()</p>
+            <h3 class="lazyPpt">返回当前PPT实例的所有PPT页实例组成的数组</h3>
+            <p class="lazyPpt">2.p.getPptsLen()</p>
+            <h3 class="lazyPpt">返回当前PPT实例的所有PPT页实例数，即PPT页数</h3>
+            <p class="lazyPpt">3.p.getPptItemsByIndex()</p>
+            <h3 class="lazyPpt">返回当前PPT实例中的某页PPT的带.pptItem类的元素所组成的数组,index为1~页数</h3>
+            <p class="lazyPpt">4.p.getLazyPptsByIndex()</p>
+            <h3 class="lazyPpt">返回当前PPT实例中的某页PPT的带.lazyPpt类的元素所组成的数组,index为1~页数</h3>
+            <p class="lazyPpt">5.p.addBackgroundByIndex(pageIndex,color);</p>
+            <h3 class="lazyPpt">给指定序号的那页PPT设置指定的背景颜色,pageIndex为1~PPT总页数</h3>
+
+        </div>
+    </div>
+
+    <div class="pptPage">
+        <div class="pptCenter doc">
+            <h1 class="lazyPpt">五.其他功能</h1>
+            <p class="lazyPpt">1.全屏与退出全屏</p>
+            <h3 class="lazyPpt">当你鼠标移到右下角页数那个圆圈时，会出现”单击全屏“几个字，你单击一下就进入全屏，全屏后同样移到页码上面，此时显示”退出全屏“几个字，你单击一下即退出全屏。</h3>
+            <p class="lazyPpt">2.页数与页码</p>
+            <h3 class="lazyPpt">右下角的一个小圆圈里面显示的是当前页数与总页数。注意：当你的PPT页数超过999后，那个小圆圈里的文字就显示不下啦，不过，我相信没有人会如此变态。</h3>
+            <p class="lazyPpt">3.右下角的小箭头</p>
+            <h3 class="lazyPpt">当你按方向键时右下角会显示你按的哪个方向的一个小箭头，目前隐藏的时候箭头和小圆圈可能有时不同步，后期会修复，暂时不影响使用。</h3>
+            <p class="lazyPpt">4.关于颜色</p>
+            <h3 class="lazyPpt">
+                目前右下角的页码和方向箭头的颜色是根据背景颜色来计算的，目前太简单了，只是根据是不是白色来设置的，比如背景是白色的那么颜色就为黑，否则其他所有都为白色，这显然是不合理的，因为有些和白色很接近的话，那么就看不见了。
+            </h3>
+        </div>
+    </div>
+
+    <div class="pptPage">
+        <div class="pptCenter doc">
+            <h1 class="lazyPpt">六.TODO</h1>
+            <p class="lazyPpt">1.自动播放</p>
+            <h3 class="lazyPpt"></h3>
+            <p class="lazyPpt">2.支持监听更多事件</p>
+            <h3 class="lazyPpt"></h3>
+            <p class="lazyPpt">3.支持监听统一的事件</p>
+            <h3 class="lazyPpt">当前只支持监听某一张PPT的事件，不能说一次性监听所有的PPT，比如说每一张PPT切换完毕后的事件你都需要监听，那么目前你只能挨个监听一遍，这显然是不合理的，后续一定会改
+            </h3>
+            <h3 class="lazyPpt">已完成</h3>
+            <p class="lazyPpt">4.带.pptItem、.lazyPpt的元素支持更多类型的动画</p>
+            <h3 class="lazyPpt">已支持更多</h3>
+            <p class="lazyPpt">5.支持统一设置背景图片</p>
+            <h3 class="lazyPpt"></h3>
+            <p class="lazyPpt">6.修改颜色计算算法</p>
+            <h3 class="lazyPpt"></h3>
+            <p class="lazyPpt">7.支持为每张PPT设置不同的动画方式</p>
+            <h3 class="lazyPpt"></h3>
+            <p class="lazyPpt">8.支持设置不同的切换动画</p>
+            <h3 class="lazyPpt"></h3>
+            <p class="lazyPpt">9.支持设置PPT大小，非百分之百时添加边框阴影</p>
+            <h3 class="lazyPpt"></h3>
+        </div>
+    </div>
+
+    <script src="./ppt.js"></script>
+    <script>
+        //new一个出来用用
+        var p = new ppt({
+            direction: 'v', //PPT切换方式，默认为"h"，即左右切换，如果设为"v"的话，则上下切换
+            transitionType: 4, //PPT切换过渡的效果，值为数字：1(渐现)、2(旋转)、3(缩小)、4(放大)，默认为0，即平移
+            pptItemEasing: 2, //用于每张PPT里面的带.pptItem类、.lazyPpt类的动画效果，值为数字：0(缩小)、1(放大)、2(从右向左平移)、3(从下到上平移)、4(从上到下平移)、5(旋转)。以上所有动画效果都带有透明度变化。
+            duration: 0.5,
+            easeing: 'ease-in-out',
+            backgroundColor: '#0dcecb',
+            bodyBroundColor: '#fff', //body的背景颜色，默认为白色
+            progressBar: true, //是否显示进度条，true/false。
+            leaveResetItems: true //当离开某张幻灯片后复位其中的带pptItem类的元素，即让它们重新隐藏，再次需要用方向键来让其依次显示
+        });
+
+
+        p.addListeners('end', function (msg) {
+            console.log('第一张加载完毕')
+        }, 1);
+        p.addListeners('end', function (msg) {
+            console.log('第' + msg + '张加载完毕all')
+        });
+        p.addListeners('start', function (msg) {
+            console.log('下一张为第' + msg + '张')
+        }, 1);
+        p.addListeners('start', function (msg) {
+            console.log('下一张为第' + msg + '张')
+        }, 2);
+        p.addListeners('start', function (msg) {
+            console.log('下一张为第' + msg + '张all')
+        });
+        p.removeListeners('start', 1);
+        //p.addBackgroundByIndex(4,'#fff');
+    </script>
+</body>
+
+</html>
